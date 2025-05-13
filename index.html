@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I'm Sorry</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .page.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1, p {
+      font-size: 2rem;
+      max-width: 800px;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    button {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    @media (max-width: 600px) {
+      h1, p {
+        font-size: 1.5rem;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page active" id="page1" style="background-image: url('https://images.pexels.com/photos/1231231/pexels-photo-1231231.jpeg');">
+    <h1>When I Look Back</h1>
+    <button onclick="nextPage(2)">Next</button>
+  </div>
+
+  <div class="page" id="page2" style="background-image: url('https://i.pinimg.com/736x/bd/46/02/bd4602098725972a2117184922e18cf4.jpg');">
+    <p>I messed up. I overreacted.<br>This isn't just an apology—I want to share what I was feeling.</p>
+    <button onclick="nextPage(3)">Next</button>
+  </div>
+
+  <div class="page" id="page3" style="background-image: url('https://images.pexels.com/photos/1231233/pexels-photo-1231233.jpeg');">
+    <p>I'm sorry I let my emotions take control.<br>It's not fair when I overreact.<br>I'm truly sorry for that.<br>I'm learning, slowly, to handle things calmly.</p>
+    <button onclick="nextPage(4)">Next</button>
+  </div>
+
+  <div class="page" id="page4" style="background-image: url('https://i.pinimg.com/originals/fd/c7/02/fdc702b58243414ec6f6bb193db76f04.gif');">
+    <p>All things aside,<br>I care deeply and regret how I acted.</p>
+    <button onclick="thankYou()">Thank you</button>
+  </div>
+
+  <script>
+    function nextPage(pageNum) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + pageNum).classList.add('active');
+    }
+
+    function thankYou() {
+      alert("Thank you for listening. That means a lot. ❤️");
+    }
+  </script>
+</body>
+</html>
